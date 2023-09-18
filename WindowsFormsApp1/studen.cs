@@ -9,13 +9,16 @@ namespace WindowsFormsApp1
     public class Student
     {
         public string Name { get; set; }
-        public string StudentID { get; set; }
-        public double Score { get; set; }
+        public string Date { get; set; }
+        public string Sex { get; set; }
+        public string Khoa{ get; set; }
 
-        public Student(string name, string studentID)
+    public Student(string name, string date,string sex,string khoa)
         {
             Name = name;
-            StudentID = studentID;
+            Date = date;
+            Sex = sex;
+            Khoa = khoa;
         }
     }
 

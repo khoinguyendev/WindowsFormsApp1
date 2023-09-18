@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            radWomen.Checked=true;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -31,13 +32,68 @@ namespace WindowsFormsApp1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            studentList.Add(new Student(txtUser.Text,txtPassword.Text));
-            string chss = "";
+
+            string gioitinh;
+            if (radMan.Checked)
+            {
+                gioitinh = radMan.Text;
+            }
+            else
+            {
+                gioitinh=radWomen.Text;
+            }
+            studentList.Add(new Student(txtName.Text, dateTime.Value.ToShortDateString(), gioitinh, cbbKhoa.Text));
+            string data = "";
+            int stt = 1;
             foreach (Student student in studentList)
             {
-                chss += "user:" + student.Name + "   password:" + student.StudentID + '\n';
+                data += stt + ". " + student.Name + "\n" +
+                        "\t-Ngày sinh: " + student.Date+ "\n" +
+                        "\t-Giới tính: " + student.Sex + "\n" +
+                        "\t-Khoa: " + student.Khoa + "\n";
+                stt++;
             }
-            rtxt.Text = chss;
+            rtxtStatus.Text = data;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbKhoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rtxtStatus_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radMan_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExits_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
