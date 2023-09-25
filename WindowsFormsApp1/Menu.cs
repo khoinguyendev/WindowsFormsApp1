@@ -41,5 +41,23 @@ namespace WindowsFormsApp1
             TinhTien obj = new TinhTien();
             obj.ShowDialog();
         }
+
+        private void tbnMusic_Click(object sender, EventArgs e)
+        {
+            Music obj = new Music();
+            obj.ShowDialog();
+        }
+
+        private void btnMusic2_Click(object sender, EventArgs e)
+        {
+            Music2 obj = new Music2();
+            obj.ShowDialog();
+        }
+
+        private void btnQLNS_Click(object sender, EventArgs e)
+        {
+            QuanLiNhanSu obj = new QuanLiNhanSu();
+            obj.ShowDialog();
+        }
     }
 }

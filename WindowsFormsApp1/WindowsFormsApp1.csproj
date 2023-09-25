@@ -64,14 +64,33 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Music.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Music.Designer.cs">
+      <DependentUpon>Music.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Music2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Music2.Designer.cs">
+      <DependentUpon>Music2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanLiNhanSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLiNhanSu.Designer.cs">
+      <DependentUpon>QuanLiNhanSu.cs</DependentUpon>
+    </Compile>
     <Compile Include="SimpleCaculator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SimpleCaculator.Designer.cs">
       <DependentUpon>SimpleCaculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Song.cs" />
     <Compile Include="studen.cs" />
     <Compile Include="TinhTien.cs">
       <SubType>Form</SubType>
@@ -88,6 +107,12 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Music.resx">
+      <DependentUpon>Music.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Music2.resx">
+      <DependentUpon>Music2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -97,6 +122,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="QuanLiNhanSu.resx">
+      <DependentUpon>QuanLiNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SimpleCaculator.resx">
       <DependentUpon>SimpleCaculator.cs</DependentUpon>
     </EmbeddedResource>

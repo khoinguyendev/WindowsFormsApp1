@@ -32,6 +32,9 @@
             this.btnForm2 = new System.Windows.Forms.Button();
             this.btnCaculator = new System.Windows.Forms.Button();
             this.btnTinhTien = new System.Windows.Forms.Button();
+            this.tbnMusic = new System.Windows.Forms.Button();
+            this.btnMusic2 = new System.Windows.Forms.Button();
+            this.btnQLNS = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnForm1
@@ -74,11 +77,44 @@
             this.btnTinhTien.UseVisualStyleBackColor = true;
             this.btnTinhTien.Click += new System.EventHandler(this.btnTinhTien_Click);
             // 
+            // tbnMusic
+            // 
+            this.tbnMusic.Location = new System.Drawing.Point(477, 105);
+            this.tbnMusic.Name = "tbnMusic";
+            this.tbnMusic.Size = new System.Drawing.Size(73, 36);
+            this.tbnMusic.TabIndex = 4;
+            this.tbnMusic.Text = "music";
+            this.tbnMusic.UseVisualStyleBackColor = true;
+            this.tbnMusic.Click += new System.EventHandler(this.tbnMusic_Click);
+            // 
+            // btnMusic2
+            // 
+            this.btnMusic2.Location = new System.Drawing.Point(60, 170);
+            this.btnMusic2.Name = "btnMusic2";
+            this.btnMusic2.Size = new System.Drawing.Size(70, 42);
+            this.btnMusic2.TabIndex = 5;
+            this.btnMusic2.Text = "music2";
+            this.btnMusic2.UseVisualStyleBackColor = true;
+            this.btnMusic2.Click += new System.EventHandler(this.btnMusic2_Click);
+            // 
+            // btnQLNS
+            // 
+            this.btnQLNS.Location = new System.Drawing.Point(163, 174);
+            this.btnQLNS.Name = "btnQLNS";
+            this.btnQLNS.Size = new System.Drawing.Size(66, 37);
+            this.btnQLNS.TabIndex = 6;
+            this.btnQLNS.Text = "QLNS";
+            this.btnQLNS.UseVisualStyleBackColor = true;
+            this.btnQLNS.Click += new System.EventHandler(this.btnQLNS_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnQLNS);
+            this.Controls.Add(this.btnMusic2);
+            this.Controls.Add(this.tbnMusic);
             this.Controls.Add(this.btnTinhTien);
             this.Controls.Add(this.btnCaculator);
             this.Controls.Add(this.btnForm2);
@@ -95,5 +131,8 @@
         private System.Windows.Forms.Button btnForm2;
         private System.Windows.Forms.Button btnCaculator;
         private System.Windows.Forms.Button btnTinhTien;
+        private System.Windows.Forms.Button tbnMusic;
+        private System.Windows.Forms.Button btnMusic2;
+        private System.Windows.Forms.Button btnQLNS;
     }
 }
