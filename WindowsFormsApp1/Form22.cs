@@ -12,10 +12,10 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1
 {
     
-    public partial class Form1 : Form
+    public partial class Form22 : Form
     {
         List<Student> studentList = new List<Student>();
-        public Form1()
+        public Form22()
         {
             InitializeComponent();
             radWomen.Checked=true;

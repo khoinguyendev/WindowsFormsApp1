@@ -19,7 +19,26 @@ namespace WindowsFormsApp1
 
         private void btnForm1_Click(object sender, EventArgs e)
         {
-           Form1 obj=new Form1();
+           Form22 obj=new Form22();
+            obj.ShowDialog();
+        }
+
+        private void btnForm2_Click(object sender, EventArgs e)
+        {
+            Form11 obj = new Form11();
+            obj.ShowDialog();
+        }
+
+        private void btnCaculator_Click(object sender, EventArgs e)
+        {
+            SimpleCaculator obj = new SimpleCaculator();
+            obj.ShowDialog();
+        }
+
+        private void btnTinhTien_Click(object sender, EventArgs e)
+        {
+
+            TinhTien obj = new TinhTien();
             obj.ShowDialog();
         }
     }
