@@ -35,6 +35,8 @@
             this.tbnMusic = new System.Windows.Forms.Button();
             this.btnMusic2 = new System.Windows.Forms.Button();
             this.btnQLNS = new System.Windows.Forms.Button();
+            this.btnTimer = new System.Windows.Forms.Button();
+            this.btnGame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnForm1
@@ -107,11 +109,33 @@
             this.btnQLNS.UseVisualStyleBackColor = true;
             this.btnQLNS.Click += new System.EventHandler(this.btnQLNS_Click);
             // 
+            // btnTimer
+            // 
+            this.btnTimer.Location = new System.Drawing.Point(261, 177);
+            this.btnTimer.Name = "btnTimer";
+            this.btnTimer.Size = new System.Drawing.Size(72, 34);
+            this.btnTimer.TabIndex = 7;
+            this.btnTimer.Text = "Timer";
+            this.btnTimer.UseVisualStyleBackColor = true;
+            this.btnTimer.Click += new System.EventHandler(this.btnTimer_Click);
+            // 
+            // btnGame
+            // 
+            this.btnGame.Location = new System.Drawing.Point(372, 178);
+            this.btnGame.Name = "btnGame";
+            this.btnGame.Size = new System.Drawing.Size(71, 33);
+            this.btnGame.TabIndex = 8;
+            this.btnGame.Text = "Game";
+            this.btnGame.UseVisualStyleBackColor = true;
+            this.btnGame.Click += new System.EventHandler(this.btnGame_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGame);
+            this.Controls.Add(this.btnTimer);
             this.Controls.Add(this.btnQLNS);
             this.Controls.Add(this.btnMusic2);
             this.Controls.Add(this.tbnMusic);
@@ -134,5 +158,7 @@
         private System.Windows.Forms.Button tbnMusic;
         private System.Windows.Forms.Button btnMusic2;
         private System.Windows.Forms.Button btnQLNS;
+        private System.Windows.Forms.Button btnTimer;
+        private System.Windows.Forms.Button btnGame;
     }
 }

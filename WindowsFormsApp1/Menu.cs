@@ -59,5 +59,17 @@ namespace WindowsFormsApp1
             QuanLiNhanSu obj = new QuanLiNhanSu();
             obj.ShowDialog();
         }
+
+        private void btnTimer_Click(object sender, EventArgs e)
+        {
+            Timer obj = new Timer();
+            obj.ShowDialog();
+        }
+
+        private void btnGame_Click(object sender, EventArgs e)
+        {
+            Game obj = new Game();
+            obj.ShowDialog();
+        }
     }
 }
