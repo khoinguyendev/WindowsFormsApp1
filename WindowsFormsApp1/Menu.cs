@@ -71,5 +71,11 @@ namespace WindowsFormsApp1
             Game obj = new Game();
             obj.ShowDialog();
         }
+
+        private void btnQLSV_Click(object sender, EventArgs e)
+        {
+            QLSV obj = new QLSV();
+            obj.ShowDialog();
+        }
     }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    public class Student
+    public class NhanSu
     {
         public string Name { get; set; }
         public string Date { get; set; }
         public string Sex { get; set; }
         public string Khoa{ get; set; }
 
-    public Student(string name, string date,string sex,string khoa)
+    public NhanSu(string name, string date,string sex,string khoa)
         {
             Name = name;
             Date = date;

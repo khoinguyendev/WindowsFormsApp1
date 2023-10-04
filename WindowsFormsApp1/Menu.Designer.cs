@@ -37,6 +37,7 @@
             this.btnQLNS = new System.Windows.Forms.Button();
             this.btnTimer = new System.Windows.Forms.Button();
             this.btnGame = new System.Windows.Forms.Button();
+            this.btnQLSV = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnForm1
@@ -129,11 +130,22 @@
             this.btnGame.UseVisualStyleBackColor = true;
             this.btnGame.Click += new System.EventHandler(this.btnGame_Click);
             // 
+            // btnQLSV
+            // 
+            this.btnQLSV.Location = new System.Drawing.Point(62, 292);
+            this.btnQLSV.Name = "btnQLSV";
+            this.btnQLSV.Size = new System.Drawing.Size(67, 32);
+            this.btnQLSV.TabIndex = 9;
+            this.btnQLSV.Text = "QLSV";
+            this.btnQLSV.UseVisualStyleBackColor = true;
+            this.btnQLSV.Click += new System.EventHandler(this.btnQLSV_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnQLSV);
             this.Controls.Add(this.btnGame);
             this.Controls.Add(this.btnTimer);
             this.Controls.Add(this.btnQLNS);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.Button btnQLNS;
         private System.Windows.Forms.Button btnTimer;
         private System.Windows.Forms.Button btnGame;
+        private System.Windows.Forms.Button btnQLSV;
     }
 }

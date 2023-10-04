@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     
     public partial class Form22 : Form
     {
-        List<Student> studentList = new List<Student>();
+        List<NhanSu> nhansuList = new List<NhanSu>();
         public Form22()
         {
             InitializeComponent();
@@ -42,15 +42,15 @@ namespace WindowsFormsApp1
             {
                 gioitinh=radWomen.Text;
             }
-            studentList.Add(new Student(txtName.Text, dateTime.Value.ToShortDateString(), gioitinh, cbbKhoa.Text));
+            nhansuList.Add(new NhanSu(txtName.Text, dateTime.Value.ToShortDateString(), gioitinh, cbbKhoa.Text));
             string data = "";
             int stt = 1;
-            foreach (Student student in studentList)
+            foreach (NhanSu nhansu in nhansuList)
             {
-                data += stt + ". " + student.Name + "\n" +
-                        "\t-Ngày sinh: " + student.Date+ "\n" +
-                        "\t-Giới tính: " + student.Sex + "\n" +
-                        "\t-Khoa: " + student.Khoa + "\n";
+                data += stt + ". " + nhansu.Name + "\n" +
+                        "\t-Ngày sinh: " + nhansu.Date+ "\n" +
+                        "\t-Giới tính: " + nhansu.Sex + "\n" +
+                        "\t-Khoa: " + nhansu.Khoa + "\n";
                 stt++;
             }
             rtxtStatus.Text = data;
