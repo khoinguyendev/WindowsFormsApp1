@@ -64,6 +64,13 @@
     <Compile Include="Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
+    <Compile Include="History.cs" />
+    <Compile Include="HistoryFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryFrom.Designer.cs">
+      <DependentUpon>HistoryFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryFrom.resx">
+      <DependentUpon>HistoryFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

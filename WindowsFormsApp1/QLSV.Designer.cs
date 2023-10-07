@@ -29,7 +29,14 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLSV));
             this.dgvStudent = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GENDER = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ADDRESS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PICTURE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbId = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
             this.lbAdress = new System.Windows.Forms.Label();
@@ -46,12 +53,11 @@ namespace WindowsFormsApp1
             this.lbDate = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GENDER = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ADDRESS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PICTURE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txbSearch = new System.Windows.Forms.TextBox();
+            this.cbSelect = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +81,48 @@ namespace WindowsFormsApp1
             this.dgvStudent.Size = new System.Drawing.Size(939, 270);
             this.dgvStudent.TabIndex = 0;
             this.dgvStudent.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_RowEnter);
+            // 
+            // ID
+            // 
+            this.ID.FillWeight = 253.8071F;
+            this.ID.HeaderText = "Mã số sinh viên";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 120;
+            // 
+            // NAME
+            // 
+            this.NAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NAME.FillWeight = 61.54822F;
+            this.NAME.HeaderText = "Họ tên";
+            this.NAME.Name = "NAME";
+            this.NAME.ReadOnly = true;
+            // 
+            // DATE
+            // 
+            this.DATE.HeaderText = "Ngày sinh";
+            this.DATE.Name = "DATE";
+            this.DATE.ReadOnly = true;
+            // 
+            // GENDER
+            // 
+            this.GENDER.HeaderText = "Giới tính (Nam)";
+            this.GENDER.Name = "GENDER";
+            this.GENDER.ReadOnly = true;
+            // 
+            // ADDRESS
+            // 
+            this.ADDRESS.HeaderText = "Địa chỉ";
+            this.ADDRESS.Name = "ADDRESS";
+            this.ADDRESS.ReadOnly = true;
+            this.ADDRESS.Width = 190;
+            // 
+            // PICTURE
+            // 
+            this.PICTURE.HeaderText = "Hình ảnh";
+            this.PICTURE.Name = "PICTURE";
+            this.PICTURE.ReadOnly = true;
+            this.PICTURE.Width = 200;
             // 
             // lbId
             // 
@@ -229,53 +277,67 @@ namespace WindowsFormsApp1
             this.label1.TabIndex = 16;
             this.label1.Text = "(d/m/y)";
             // 
-            // ID
+            // label2
             // 
-            this.ID.FillWeight = 253.8071F;
-            this.ID.HeaderText = "Mã số sinh viên";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 120;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(297, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Tìm kiếm:";
             // 
-            // NAME
+            // txbSearch
             // 
-            this.NAME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NAME.FillWeight = 61.54822F;
-            this.NAME.HeaderText = "Họ tên";
-            this.NAME.Name = "NAME";
-            this.NAME.ReadOnly = true;
+            this.txbSearch.Location = new System.Drawing.Point(365, 12);
+            this.txbSearch.Name = "txbSearch";
+            this.txbSearch.Size = new System.Drawing.Size(162, 20);
+            this.txbSearch.TabIndex = 18;
             // 
-            // DATE
+            // cbSelect
             // 
-            this.DATE.HeaderText = "Ngày sinh";
-            this.DATE.Name = "DATE";
-            this.DATE.ReadOnly = true;
+            this.cbSelect.FormattingEnabled = true;
+            this.cbSelect.Items.AddRange(new object[] {
+            "MSSV",
+            "Tên",
+            "Địa chỉ"});
+            this.cbSelect.Location = new System.Drawing.Point(533, 12);
+            this.cbSelect.Name = "cbSelect";
+            this.cbSelect.Size = new System.Drawing.Size(58, 21);
+            this.cbSelect.TabIndex = 19;
+            this.cbSelect.Text = "MSSV";
             // 
-            // GENDER
+            // btnSearch
             // 
-            this.GENDER.HeaderText = "Giới tính (Nam)";
-            this.GENDER.Name = "GENDER";
-            this.GENDER.ReadOnly = true;
+            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Location = new System.Drawing.Point(601, 7);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(37, 29);
+            this.btnSearch.TabIndex = 20;
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // ADDRESS
+            // btnHistory
             // 
-            this.ADDRESS.HeaderText = "Địa chỉ";
-            this.ADDRESS.Name = "ADDRESS";
-            this.ADDRESS.ReadOnly = true;
-            this.ADDRESS.Width = 190;
-            // 
-            // PICTURE
-            // 
-            this.PICTURE.HeaderText = "Hình ảnh";
-            this.PICTURE.Name = "PICTURE";
-            this.PICTURE.ReadOnly = true;
-            this.PICTURE.Width = 200;
+            this.btnHistory.Location = new System.Drawing.Point(808, 7);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(115, 24);
+            this.btnHistory.TabIndex = 21;
+            this.btnHistory.Text = "Lịch sử";
+            this.btnHistory.UseVisualStyleBackColor = true;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
             // QLSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 602);
+            this.Controls.Add(this.btnHistory);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.cbSelect);
+            this.Controls.Add(this.txbSearch);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lbDate);
@@ -328,5 +390,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewCheckBoxColumn GENDER;
         private System.Windows.Forms.DataGridViewTextBoxColumn ADDRESS;
         private System.Windows.Forms.DataGridViewTextBoxColumn PICTURE;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txbSearch;
+        private System.Windows.Forms.ComboBox cbSelect;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnHistory;
     }
 }
