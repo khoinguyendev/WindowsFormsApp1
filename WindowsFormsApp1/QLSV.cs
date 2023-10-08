@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
         private bool kiemtra = false;
         private string pathInMyComputer = null;
         private string namePicture = null;
-        string destinationFilePath = null;
+        string pathInProject = null;
         List<Student> lst;
         List<History> lstHistory=new List<History>();
         public QLSV()
@@ -86,9 +86,9 @@ namespace WindowsFormsApp1
             if (pathInMyComputer != null)
             {
                 name = currentDateTime.ToString("yyyyMMddHHmmssfff") + namePicture;
-                destinationFilePath = Path.Combine("../../Images", name);
+                pathInProject = Path.Combine("../../Images", name);
                 // Di chuyển tệp hình ảnh vào thư mục "image"
-                File.Copy(pathInMyComputer, destinationFilePath, true);
+                File.Copy(pathInMyComputer, pathInProject, true);
             }
             Student std = new Student(txbId.Text,txbName.Text,dateTimePicker1.Text,ckbGender.Checked,txbAdress.Text,name);
             lst.Add(std);
@@ -96,9 +96,7 @@ namespace WindowsFormsApp1
 
 
             //Them vao history
-            string g = "Nam";
-            if (ckbGender.Checked == false)
-                g = "Nữ";
+            string g = gender(ckbGender.Checked);
             History h = new History("THÊM", txbId.Text, "Tên: " + txbName.Text + ",  Ngày sinh: " + dateTimePicker1.Text+ ",  Địa chỉ: " + txbAdress.Text+",  Giới tính: "+g,currentDateTime.ToString("dd/MM/yyyy  HH:mm:ss"));
             lstHistory.Add(h);
         }
@@ -125,9 +123,9 @@ namespace WindowsFormsApp1
             }
             ckbGender.Checked = bool.Parse(dgvStudent.Rows[index].Cells[3].Value.ToString());
             txbAdress.Text = dgvStudent.Rows[index].Cells[4].Value.ToString();
-            destinationFilePath = Path.Combine("../../Images", dgvStudent.Rows[index].Cells[5].Value.ToString());
+            pathInProject = Path.Combine("../../Images", dgvStudent.Rows[index].Cells[5].Value.ToString());
             pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbImage.ImageLocation = destinationFilePath;
+            pbImage.ImageLocation = pathInProject;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -143,11 +141,10 @@ namespace WindowsFormsApp1
             string date = dgvStudent.Rows[index].Cells[2].Value.ToString();
             string address= dgvStudent.Rows[index].Cells[4].Value.ToString();
             bool kt = bool.Parse(dgvStudent.Rows[index].Cells[3].Value.ToString());
-            string gender = "Nam";
-            if (kt == false)
-                gender = "Nữ";
+            string gioitinh = gender(kt);
             string path= dgvStudent.Rows[index].Cells[5].Value.ToString();
-            File.Delete($"../../Images/{path}");
+            if(path!="")
+                File.Delete($"../../Images/{path}");
             dgvStudent.Rows.RemoveAt(index);
             int i = 0;
             foreach (Student student in lst)
@@ -160,17 +157,18 @@ namespace WindowsFormsApp1
                 i++;
             }
             DateTime time = DateTime.Now;
-            History h = new History("XÓA", mssv, "Tên: " + name + ",  Ngày sinh: " + date + ",  Địa chỉ: " + txbAdress.Text + ",  Giới tính: " + gender, time.ToString("dd/MM/yyyy  HH:mm:ss"));
+            History h = new History("XÓA", mssv, "Tên: " + name + ",  Ngày sinh: " + date + ",  Địa chỉ: " + txbAdress.Text + ",  Giới tính: " + gioitinh, time.ToString("dd/MM/yyyy  HH:mm:ss"));
             lstHistory.Add(h);
         }
-        private bool IsImageFileExtension(string fileExtension)
+        private bool KiemTraDuoi(string duoiHinhAnh)
         {
             // Danh sách các đuôi tệp hình ảnh hợp lệ
-            string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp" };
-            return validExtensions.Contains(fileExtension);
+            string[] s = { ".jpg", ".jpeg", ".png", ".bmp" };
+            return s.Contains(duoiHinhAnh);
         }
         private void btnChooseImage_Click(object sender, EventArgs e)
         {
+            kiemtra = false;
             pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Title = "Open Image";
@@ -178,19 +176,19 @@ namespace WindowsFormsApp1
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                string fileName = dlg.FileName;
-                string fileExtension = Path.GetExtension(fileName).ToLower();
-                if (IsImageFileExtension(fileExtension))
+                string duongDanHinhAnh = dlg.FileName;
+                string duoiHinhAnh = Path.GetExtension(duongDanHinhAnh).ToLower();
+                if (KiemTraDuoi(duoiHinhAnh))
                 {
-                    pbImage.ImageLocation = fileName;
+                    pbImage.ImageLocation = duongDanHinhAnh;
+                    pathInMyComputer = duongDanHinhAnh;
+                    namePicture = Path.GetFileName(duongDanHinhAnh);
+                    kiemtra = true;
                 }
                 else
                 {
                     MessageBox.Show("Tệp không phải là hình ảnh hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                pathInMyComputer = fileName;
-                namePicture = Path.GetFileName(fileName);
-                kiemtra = true;
             }
         }
 
@@ -205,7 +203,12 @@ namespace WindowsFormsApp1
                 if (txbId.Text == student.Id)
                 {
 
-                    string s = ChinhSua(vt, txbName.Text, dateTimePicker1.Text);
+                    string s = ChinhSua(vt, txbName.Text, dateTimePicker1.Text,ckbGender.Checked,txbAdress.Text,namePicture);
+                    if (s == "")
+                    {
+                        MessageBox.Show("Không có gì để cập nhật!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                     string name = student.Picture;
                     student.Name = txbName.Text;
                     student.Gender = ckbGender.Checked;
@@ -218,16 +221,18 @@ namespace WindowsFormsApp1
                             File.Delete($"../../Images/{path}");
                         DateTime currentDateTime = DateTime.Now;
                         name = currentDateTime.ToString("yyyyMMddHHmmssfff") + namePicture;
-                        destinationFilePath = Path.Combine("../../Images", name);
+                        pathInProject = Path.Combine("../../Images", name);
                         student.Picture = name;
-                        File.Copy(pathInMyComputer, destinationFilePath, true);
+                        File.Copy(pathInMyComputer, pathInProject, true);
                     }
                     change_data(name);
-                    MessageBox.Show("Cập nhật thông tin thành công!!");
+                    MessageBox.Show("Cập nhật thông tin thành công!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     co = true;
-                    kiemtra = false;
+                    pathInMyComputer = null;
+
+                    //thêm vào lịch sử
                     DateTime time = DateTime.Now;
-                    History h = new History("Sửa", txbId.Text, s, time.ToString("dd/MM/yyyy  HH:mm:ss"));
+                    History h = new History("SỬA", txbId.Text, s, time.ToString("dd/MM/yyyy  HH:mm:ss"));
                     lstHistory.Add(h);
                     return;
                 }
@@ -301,15 +306,29 @@ namespace WindowsFormsApp1
             obj.ShowDialog();
         }
 
-        private string ChinhSua(int vt,string name,string ngaysinh)
+        private string ChinhSua(int vt,string name,string ngaysinh,bool gioitinh,string diachi,string hinhanh)
         {
             string s = "";
             if (lst[vt].Name != name)
-                s += $"Tên:{lst[vt].Name} --> {name}";
+                s += $"Tên:{lst[vt].Name} --> {name}\n";
             if (lst[vt].Date !=ngaysinh)
-                s += $",  Ngày sinh:{lst[vt].Date} --> {ngaysinh}";
-            //if (lst[vt].Gender != gioitinh)
-            //    s += $",  Ngày sinh:{lst[vt].Date} --> {ngaysinh}";
+                s += $", Ngày sinh:{lst[vt].Date} --> {ngaysinh}\n";
+            if(lst[vt].Gender!=gioitinh)
+                s += $", Giới tính:{gender(lst[vt].Gender)} -->  {gender(gioitinh)}\n";
+            if (lst[vt].Address != diachi)
+                s += $", Địa chỉ:{lst[vt].Address} --> {diachi}\n";
+            if(kiemtra==true)
+            {
+                if (lst[vt].Picture != hinhanh && namePicture != null)
+                    s += $", Hình ảnh:{lst[vt].Picture} --> {hinhanh}\n";
+            }
+            return s;
+        }
+        private  string gender(bool b)
+        {
+            string s = "Nam";
+            if (b == false)
+                s = "Nữ";
             return s;
         }
     }
