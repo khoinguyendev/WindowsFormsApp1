@@ -9,8 +9,8 @@ namespace WindowsFormsApp1
 
     public class TracNghiem
     {
-        private string question;
-        private string[] answer;
+        public string question;
+        public string[] answer;
         public TracNghiem(string Question,string[] ansew)
         {
             question = Question;
