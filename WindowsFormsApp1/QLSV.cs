@@ -58,7 +58,7 @@ namespace WindowsFormsApp1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            kiemtra = false;
+            
             if (txbId.Text == "" || txbName.Text == "")
             {
                 MessageBox.Show("MSSV và Họ tên không được để trống!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -90,6 +90,10 @@ namespace WindowsFormsApp1
                 // Di chuyển tệp hình ảnh vào thư mục "image"
                 File.Copy(pathInMyComputer, pathInProject, true);
             }
+            if (kiemtra == false)
+            {
+                name = "";
+            }
             Student std = new Student(txbId.Text,txbName.Text,dateTimePicker1.Text,ckbGender.Checked,txbAdress.Text,name);
             lst.Add(std);
             dgvStudent.Rows.Add(std.Id, std.Name, std.Date, std.Gender, std.Address, std.Picture);
@@ -99,6 +103,7 @@ namespace WindowsFormsApp1
             string g = gender(ckbGender.Checked);
             History h = new History("THÊM", txbId.Text, "Tên: " + txbName.Text + ",  Ngày sinh: " + dateTimePicker1.Text+ ",  Địa chỉ: " + txbAdress.Text+",  Giới tính: "+g,currentDateTime.ToString("dd/MM/yyyy  HH:mm:ss"));
             lstHistory.Add(h);
+            kiemtra = false;
         }
 
         private void dgvStudent_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -123,18 +128,32 @@ namespace WindowsFormsApp1
             }
             ckbGender.Checked = bool.Parse(dgvStudent.Rows[index].Cells[3].Value.ToString());
             txbAdress.Text = dgvStudent.Rows[index].Cells[4].Value.ToString();
-            pathInProject = Path.Combine("../../Images", dgvStudent.Rows[index].Cells[5].Value.ToString());
-            pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbImage.ImageLocation = pathInProject;
+            if (dgvStudent.Rows[index].Cells[5].Value.ToString() == "")
+                pbImage.ImageLocation = null;
+            else
+            {
+                pathInProject = Path.Combine("../../Images", dgvStudent.Rows[index].Cells[5].Value.ToString());
+                pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                pbImage.ImageLocation = pathInProject;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult kq = MessageBox.Show("Bạn có chắc muốn thoát không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if(kq==DialogResult.OK)
+            {
+                this.Close();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvStudent.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             int index = dgvStudent.CurrentCell.RowIndex;;
             string mssv = dgvStudent.Rows[index].Cells[0].Value.ToString();
             string name = dgvStudent.Rows[index].Cells[1].Value.ToString();
@@ -180,10 +199,24 @@ namespace WindowsFormsApp1
                 string duoiHinhAnh = Path.GetExtension(duongDanHinhAnh).ToLower();
                 if (KiemTraDuoi(duoiHinhAnh))
                 {
-                    pbImage.ImageLocation = duongDanHinhAnh;
-                    pathInMyComputer = duongDanHinhAnh;
-                    namePicture = Path.GetFileName(duongDanHinhAnh);
-                    kiemtra = true;
+                   
+
+                    FileInfo fileInfo = new FileInfo(duongDanHinhAnh);
+                    long fileSizeInBytes = fileInfo.Length;
+                    long fileSizeInMB = fileSizeInBytes / (1024 * 1024); // Chuyển đổi sang MB
+
+                    if (fileSizeInMB > 4)
+                    {
+                        MessageBox.Show("Kích thước tệp quá lớn (lớn hơn 4 MB). Vui lòng chọn một tệp nhỏ hơn.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        pbImage.ImageLocation = duongDanHinhAnh;
+                        pathInMyComputer = duongDanHinhAnh;
+                        namePicture = Path.GetFileName(duongDanHinhAnh);
+                        kiemtra = true;
+                    }
                 }
                 else
                 {
@@ -194,7 +227,13 @@ namespace WindowsFormsApp1
 
         private void btnFix_Click(object sender, EventArgs e)
         {
-            
+            int index = dgvStudent.CurrentCell.RowIndex;
+            string mssv = dgvStudent.Rows[index].Cells[0].Value.ToString();
+            if (mssv != txbId.Text)
+            {
+                MessageBox.Show("Không đúng Mã Số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             bool co = false;
             int vt = 0;
             foreach (Student student in lst)
@@ -330,6 +369,24 @@ namespace WindowsFormsApp1
             if (b == false)
                 s = "Nữ";
             return s;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txbId.Text = "";
+            txbName.Text = "";
+            ckbGender.Checked=false;
+            dateTimePicker1.Text="01/01/2001";
+            txbAdress.Text="";
+            pbImage.ImageLocation = "";
+        }
+
+        private void dgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Đảm bảo người dùng đã chọn một hàng hợp lệ (không phải tiêu đề)
+            {
+                dgvStudent.Rows[e.RowIndex].Selected = true;
+            }
         }
     }
 }

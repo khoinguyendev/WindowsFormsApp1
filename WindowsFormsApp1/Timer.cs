@@ -96,5 +96,10 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void Timer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

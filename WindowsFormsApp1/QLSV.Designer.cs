@@ -58,6 +58,7 @@ namespace WindowsFormsApp1
             this.cbSelect = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnHistory = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +81,7 @@ namespace WindowsFormsApp1
             this.dgvStudent.ReadOnly = true;
             this.dgvStudent.Size = new System.Drawing.Size(939, 270);
             this.dgvStudent.TabIndex = 0;
+            this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
             this.dgvStudent.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_RowEnter);
             // 
             // ID
@@ -328,11 +330,22 @@ namespace WindowsFormsApp1
             this.btnHistory.UseVisualStyleBackColor = true;
             this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(365, 561);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(96, 29);
+            this.btnClear.TabIndex = 22;
+            this.btnClear.Text = "Làm sạch";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // QLSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 602);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.cbSelect);
@@ -395,5 +408,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.ComboBox cbSelect;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Button btnClear;
     }
 }

@@ -81,6 +81,7 @@
             this.Controls.Add(this.btnStart);
             this.Name = "Timer";
             this.Text = "Timer";
+            this.Load += new System.EventHandler(this.Timer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
