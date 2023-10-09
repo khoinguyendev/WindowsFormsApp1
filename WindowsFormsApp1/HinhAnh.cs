@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class QuanLiNhanSu : Form
+    public partial class HinhAnh : Form
     {
-        public QuanLiNhanSu()
+        public HinhAnh()
         {
             InitializeComponent();
         }

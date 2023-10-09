@@ -58,11 +58,17 @@
     <Compile Include="Form11.Designer.cs">
       <DependentUpon>Form11.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game.cs">
+    <Compile Include="FormTN1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game.Designer.cs">
-      <DependentUpon>Game.cs</DependentUpon>
+    <Compile Include="FormTN1.Designer.cs">
+      <DependentUpon>FormTN1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTracNghiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTracNghiem.Designer.cs">
+      <DependentUpon>FormTracNghiem.cs</DependentUpon>
     </Compile>
     <Compile Include="History.cs" />
     <Compile Include="HistoryFrom.cs">
@@ -83,12 +89,6 @@
     <Compile Include="Music.Designer.cs">
       <DependentUpon>Music.cs</DependentUpon>
     </Compile>
-    <Compile Include="Music2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Music2.Designer.cs">
-      <DependentUpon>Music2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLSV.cs">
@@ -97,11 +97,11 @@
     <Compile Include="QLSV.Designer.cs">
       <DependentUpon>QLSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLiNhanSu.cs">
+    <Compile Include="HinhAnh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLiNhanSu.Designer.cs">
-      <DependentUpon>QuanLiNhanSu.cs</DependentUpon>
+    <Compile Include="HinhAnh.Designer.cs">
+      <DependentUpon>HinhAnh.cs</DependentUpon>
     </Compile>
     <Compile Include="SimpleCaculator.cs">
       <SubType>Form</SubType>
@@ -124,14 +124,18 @@
     <Compile Include="TinhTien.Designer.cs">
       <DependentUpon>TinhTien.cs</DependentUpon>
     </Compile>
+    <Compile Include="TracNghiem.cs" />
     <EmbeddedResource Include="Form11.resx">
       <DependentUpon>Form11.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form22.resx">
       <DependentUpon>Form22.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Game.resx">
-      <DependentUpon>Game.cs</DependentUpon>
+    <EmbeddedResource Include="FormTN1.resx">
+      <DependentUpon>FormTN1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTracNghiem.resx">
+      <DependentUpon>FormTracNghiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistoryFrom.resx">
       <DependentUpon>HistoryFrom.cs</DependentUpon>
@@ -141,9 +145,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Music.resx">
       <DependentUpon>Music.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Music2.resx">
-      <DependentUpon>Music2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -157,8 +158,8 @@
     <EmbeddedResource Include="QLSV.resx">
       <DependentUpon>QLSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanLiNhanSu.resx">
-      <DependentUpon>QuanLiNhanSu.cs</DependentUpon>
+    <EmbeddedResource Include="HinhAnh.resx">
+      <DependentUpon>HinhAnh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SimpleCaculator.resx">
       <DependentUpon>SimpleCaculator.cs</DependentUpon>

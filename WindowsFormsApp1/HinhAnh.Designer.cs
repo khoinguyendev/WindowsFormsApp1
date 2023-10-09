@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class QuanLiNhanSu
+    partial class HinhAnh
     {
         /// <summary>
         /// Required designer variable.

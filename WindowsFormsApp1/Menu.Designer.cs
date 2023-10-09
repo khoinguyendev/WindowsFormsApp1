@@ -97,16 +97,14 @@
             this.btnMusic2.Size = new System.Drawing.Size(70, 42);
             this.btnMusic2.TabIndex = 5;
             this.btnMusic2.Text = "music2";
-            this.btnMusic2.UseVisualStyleBackColor = true;
-            this.btnMusic2.Click += new System.EventHandler(this.btnMusic2_Click);
-            // 
+            this.btnMusic2.UseVisualStyleBackColor = true;            // 
             // btnQLNS
             // 
             this.btnQLNS.Location = new System.Drawing.Point(163, 174);
             this.btnQLNS.Name = "btnQLNS";
             this.btnQLNS.Size = new System.Drawing.Size(66, 37);
             this.btnQLNS.TabIndex = 6;
-            this.btnQLNS.Text = "QLNS";
+            this.btnQLNS.Text = "Picture";
             this.btnQLNS.UseVisualStyleBackColor = true;
             this.btnQLNS.Click += new System.EventHandler(this.btnQLNS_Click);
             // 
@@ -124,9 +122,9 @@
             // 
             this.btnGame.Location = new System.Drawing.Point(372, 178);
             this.btnGame.Name = "btnGame";
-            this.btnGame.Size = new System.Drawing.Size(71, 33);
+            this.btnGame.Size = new System.Drawing.Size(101, 33);
             this.btnGame.TabIndex = 8;
-            this.btnGame.Text = "Game";
+            this.btnGame.Text = "Trắc nghiệm";
             this.btnGame.UseVisualStyleBackColor = true;
             this.btnGame.Click += new System.EventHandler(this.btnGame_Click);
             // 

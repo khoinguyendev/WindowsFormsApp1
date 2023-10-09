@@ -48,15 +48,10 @@ namespace WindowsFormsApp1
             obj.ShowDialog();
         }
 
-        private void btnMusic2_Click(object sender, EventArgs e)
-        {
-            Music2 obj = new Music2();
-            obj.ShowDialog();
-        }
 
         private void btnQLNS_Click(object sender, EventArgs e)
         {
-            QuanLiNhanSu obj = new QuanLiNhanSu();
+            HinhAnh obj = new HinhAnh();
             obj.ShowDialog();
         }
 
@@ -68,7 +63,7 @@ namespace WindowsFormsApp1
 
         private void btnGame_Click(object sender, EventArgs e)
         {
-            Game obj = new Game();
+            FormTracNghiem obj = new FormTracNghiem();
             obj.ShowDialog();
         }
 
