@@ -33,7 +33,6 @@
             this.btnCaculator = new System.Windows.Forms.Button();
             this.btnTinhTien = new System.Windows.Forms.Button();
             this.tbnMusic = new System.Windows.Forms.Button();
-            this.btnMusic2 = new System.Windows.Forms.Button();
             this.btnQLNS = new System.Windows.Forms.Button();
             this.btnTimer = new System.Windows.Forms.Button();
             this.btnGame = new System.Windows.Forms.Button();
@@ -90,17 +89,9 @@
             this.tbnMusic.UseVisualStyleBackColor = true;
             this.tbnMusic.Click += new System.EventHandler(this.tbnMusic_Click);
             // 
-            // btnMusic2
-            // 
-            this.btnMusic2.Location = new System.Drawing.Point(60, 170);
-            this.btnMusic2.Name = "btnMusic2";
-            this.btnMusic2.Size = new System.Drawing.Size(70, 42);
-            this.btnMusic2.TabIndex = 5;
-            this.btnMusic2.Text = "music2";
-            this.btnMusic2.UseVisualStyleBackColor = true;            // 
             // btnQLNS
             // 
-            this.btnQLNS.Location = new System.Drawing.Point(163, 174);
+            this.btnQLNS.Location = new System.Drawing.Point(54, 174);
             this.btnQLNS.Name = "btnQLNS";
             this.btnQLNS.Size = new System.Drawing.Size(66, 37);
             this.btnQLNS.TabIndex = 6;
@@ -110,7 +101,7 @@
             // 
             // btnTimer
             // 
-            this.btnTimer.Location = new System.Drawing.Point(261, 177);
+            this.btnTimer.Location = new System.Drawing.Point(157, 178);
             this.btnTimer.Name = "btnTimer";
             this.btnTimer.Size = new System.Drawing.Size(72, 34);
             this.btnTimer.TabIndex = 7;
@@ -120,7 +111,7 @@
             // 
             // btnGame
             // 
-            this.btnGame.Location = new System.Drawing.Point(372, 178);
+            this.btnGame.Location = new System.Drawing.Point(257, 179);
             this.btnGame.Name = "btnGame";
             this.btnGame.Size = new System.Drawing.Size(101, 33);
             this.btnGame.TabIndex = 8;
@@ -147,7 +138,6 @@
             this.Controls.Add(this.btnGame);
             this.Controls.Add(this.btnTimer);
             this.Controls.Add(this.btnQLNS);
-            this.Controls.Add(this.btnMusic2);
             this.Controls.Add(this.tbnMusic);
             this.Controls.Add(this.btnTinhTien);
             this.Controls.Add(this.btnCaculator);
@@ -166,7 +156,6 @@
         private System.Windows.Forms.Button btnCaculator;
         private System.Windows.Forms.Button btnTinhTien;
         private System.Windows.Forms.Button tbnMusic;
-        private System.Windows.Forms.Button btnMusic2;
         private System.Windows.Forms.Button btnQLNS;
         private System.Windows.Forms.Button btnTimer;
         private System.Windows.Forms.Button btnGame;
